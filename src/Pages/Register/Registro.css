@@ -27,11 +27,21 @@
   .register-input{
     height: 50vh;
     display: grid;
+    justify-items: center;
   }
   .register-input input {
     width: 97%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
     border: 1px solid #ccc;
     border-radius: 5px;
+  }
+  .register-input button{
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .register-input button:hover{
+    cursor: pointer;
   }
