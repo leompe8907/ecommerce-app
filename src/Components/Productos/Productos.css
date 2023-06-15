@@ -1,0 +1,11 @@
+.producto-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .producto-genetal-product {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
