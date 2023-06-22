@@ -3,6 +3,8 @@ import { getFirestore, collection, query, where, getDocs } from 'firebase/firest
 import firebase from '../../firebase';
 import Productos from '../../Components/Productos/Productos';
 
+import "./ProductPage.css"
+
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState([]);
@@ -30,15 +32,20 @@ const ProductsPage = () => {
   };
 
   return (
-    <div>
-      <h2>Categorías</h2>
-      <div>
-        <button onClick={() => handleCategoryClick(null)}>Todos</button>
-        <button onClick={() => handleCategoryClick('Electrónicos')}>Electrónicos</button>
-        <button onClick={() => handleCategoryClick('Ropa')}>Ropa</button>
-        {/* Agrega más botones según tus categorías */}
+    <div className='Products-General'>
+      <div className='Products-General-Category'>
+        <div className='Products-title'>
+          <h2>Categorías</h2>
+        </div>
+        <div className='Products-Category'>
+          <ul>
+            <li className='Products-Products' onClick={() => handleCategoryClick(null)}>Todos</li>
+            <li className='Products-Products' onClick={() => handleCategoryClick('Electrónicos')}>Electrónicos</li>
+            <li className='Products-Products' onClick={() => handleCategoryClick('Ropa')}>Ropa</li>
+          </ul>
+          {/* Agrega más botones según tus categorías */}
+        </div>
       </div>
-
       <Productos products={products} />
     </div>
   );

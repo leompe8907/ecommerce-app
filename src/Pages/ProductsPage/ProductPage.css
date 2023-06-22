@@ -1,0 +1,8 @@
+.Products-General{
+    display: flex;
+    height: 90vh;
+    width: 100%;
+}
+.Products-Category{
+  display: flex;
+}

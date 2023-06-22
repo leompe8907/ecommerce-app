@@ -1,17 +1,26 @@
 import React from 'react';
+import "./Productos.css"
 
 const Productos = ({ products }) => {
   return (
-    <div>
-      <h3>Productos</h3>
-      <ul>
+    <div className='productInfotmationGeneral'>
         {products.map((product) => (
-          <li key={product.id}>
-            <h4>{product.nombre}</h4>
-            <p>{product.descripcion}</p>
-          </li>
+          <div className='prodcutInformation' key={product.id}>
+              <div className='productImg'><img className='productoImg' src={product.img} alt={product.alt} /></div>
+              <div className='productDescription'>
+                <div>
+                  <h4>{product.nombre}</h4>
+                </div>
+                <div>
+                  <p>{product.descripcion}</p>
+                </div>
+                <div>
+                  <p>{product.precio}</p>
+                </div>
+              </div>
+              <div> <button>Agregar</button> </div>
+          </div>
         ))}
-      </ul>
     </div>
   );
 };

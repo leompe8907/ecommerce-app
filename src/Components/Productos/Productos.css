@@ -1,11 +1,23 @@
-.producto-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .producto-genetal-product {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+.productInfotmationGeneral{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+.prodcutInformation{
+  width: 250px;
+  height: 370px;
+  box-sizing: border-box;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  border: 2px black solid;
+}
+.productoImg{
+  width: 200px;
+}
