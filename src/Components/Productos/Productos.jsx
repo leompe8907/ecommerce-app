@@ -18,7 +18,7 @@ const Productos = ({ products }) => {
                   <p>{product.precio}</p>
                 </div>
               </div>
-              <div> <button>Agregar</button> </div>
+              <div className='productButton'> <button className='Button'>Agregar</button> </div>
           </div>
         ))}
     </div>
