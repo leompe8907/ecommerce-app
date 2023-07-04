@@ -7,7 +7,20 @@ import "./ProductPage.css"
 
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const db = getFirestore(firebase);
+      const productsCollection = collection(db, 'Productos');
+      const productsSnapshot = await getDocs(productsCollection);
+      const categoriesData = [...new Set(productsSnapshot.docs.map((doc) => doc.data().Categorias))];
+      setCategories(categoriesData);
+    };
+
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,7 +29,7 @@ const ProductsPage = () => {
       let productsQuery = query(productsCollection);
 
       if (selectedCategory) {
-        productsQuery = query(productsCollection, where('categoria', '==', selectedCategory));
+        productsQuery = query(productsCollection, where('Categorias', '==', selectedCategory));
       }
 
       const productsSnapshot = await getDocs(productsQuery);
@@ -40,10 +53,12 @@ const ProductsPage = () => {
         <div className='Products-Category'>
           <ul>
             <li className='Products-Products' onClick={() => handleCategoryClick(null)}>Todos</li>
-            <li className='Products-Products' onClick={() => handleCategoryClick('Electrónicos')}>Electrónicos</li>
-            <li className='Products-Products' onClick={() => handleCategoryClick('Ropa')}>Ropa</li>
+            {categories.map((category) => (
+              <li className='Products-Products' onClick={() => handleCategoryClick(category)} key={category}>
+                {category}
+              </li>
+            ))}
           </ul>
-          {/* Agrega más botones según tus categorías */}
         </div>
       </div>
       <Productos products={products} />
